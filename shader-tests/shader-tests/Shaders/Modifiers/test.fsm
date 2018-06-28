@@ -1,0 +1,14 @@
+//!! `arguments` pragma directive doesn't work as documented when defining global methods (i.e. testMethod). Just define arguments in #pragma body
+//#pragma arguments
+//float testVar;
+//uniform float testVar; //uniform version only required for GLSL
+
+//define methods in the shader
+float testMethod( float s ){
+    return s;
+}
+
+//pragma directives
+#pragma body
+float testVar; //define variables after the body
+_output.color.r = testMethod(1.0);
