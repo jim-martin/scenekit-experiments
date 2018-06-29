@@ -51,14 +51,16 @@ class ViewController: UIViewController {
         scene.rootNode.addChildNode(cloudNode)
         cloudNode.scale = SCNVector3Make(3, 0.4, 3)
         
-        let occlusionNode: SCNNode = SCNNode(geometry: SCNBox(width: 3, height: 0.2, length: 3, chamferRadius: 0));
-        scene.rootNode.addChildNode(occlusionNode);
-        occlusionNode.position.y -= 0.3;
         
-        let shadowNode: SCNNode = SCNNode(geometry: SCNBox(width: 1, height: 0.2, length: 1, chamferRadius: 0));
-        scene.rootNode.addChildNode(shadowNode);
-        shadowNode.castsShadow = true;
-        shadowNode.position.y += 0.3;
+//        //for testing shadows
+//        let occlusionNode: SCNNode = SCNNode(geometry: SCNBox(width: 3, height: 0.2, length: 3, chamferRadius: 0));
+//        scene.rootNode.addChildNode(occlusionNode);
+//        occlusionNode.position.y -= 0.3;
+//        
+//        let shadowNode: SCNNode = SCNNode(geometry: SCNBox(width: 1, height: 0.2, length: 1, chamferRadius: 0));
+//        scene.rootNode.addChildNode(shadowNode);
+//        shadowNode.castsShadow = true;
+//        shadowNode.position.y += 0.3;
         
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
