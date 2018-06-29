@@ -47,9 +47,15 @@ class ViewController: UIViewController {
         let background = UIImage(named: "art.scnassets/UV_Grid_Sm.png")
         scene.background.contents = [background, background, background, background, background, background];
         
-        let cloudNode = CloudVolume();
-        scene.rootNode.addChildNode(cloudNode)
-        cloudNode.scale = SCNVector3Make(3, 0.4, 3)
+        //volume-slice node
+        let volumeNode = SliceVolume()
+        scene.rootNode.addChildNode(volumeNode)
+        volumeNode.scale = SCNVector3Make(3, 3, 3)
+
+//        //cloud node
+//        let cloudNode = CloudVolume();
+//        scene.rootNode.addChildNode(cloudNode)
+//        cloudNode.scale = SCNVector3Make(3, 0.4, 3)
         
         
 //        //for testing shadows

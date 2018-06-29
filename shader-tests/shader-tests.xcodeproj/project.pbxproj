@@ -20,6 +20,8 @@
 		9511F97020CEFCB100F1986B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9511F96F20CEFCB100F1986B /* Assets.xcassets */; };
 		9511F97320CEFCB100F1986B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9511F97120CEFCB100F1986B /* LaunchScreen.storyboard */; };
 		95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 95384F6720DAF9F000EE2E53 /* depth-buffer.metal */; };
+		9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */; };
+		9547FFD420E6A2D600BB7DD4 /* volume-slice.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */; };
 		9589566E20E5A45E00D12820 /* CloudVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589566D20E5A45E00D12820 /* CloudVolume.swift */; };
 		9589567020E5A47100D12820 /* SCNUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589566F20E5A47100D12820 /* SCNUIView.swift */; };
 		9589567220E5A48100D12820 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589567120E5A48100D12820 /* Utils.swift */; };
@@ -65,6 +67,8 @@
 		9511F97920CEFCB100F1986B /* shader-testsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shader-testsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9511F98420CEFCB100F1986B /* shader-testsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shader-testsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95384F6720DAF9F000EE2E53 /* depth-buffer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "depth-buffer.metal"; sourceTree = "<group>"; };
+		9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceVolume.swift; sourceTree = "<group>"; };
+		9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "volume-slice.metal"; sourceTree = "<group>"; };
 		9589566D20E5A45E00D12820 /* CloudVolume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVolume.swift; sourceTree = "<group>"; };
 		9589566F20E5A47100D12820 /* SCNUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNUIView.swift; sourceTree = "<group>"; };
 		9589567120E5A48100D12820 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				9589567320E5A49100D12820 /* clouds.metal */,
 				950721B820D307F9000C36A9 /* unlit-texture.metal */,
 				95384F6720DAF9F000EE2E53 /* depth-buffer.metal */,
+				9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				9511F96F20CEFCB100F1986B /* Assets.xcassets */,
 				9511F97120CEFCB100F1986B /* LaunchScreen.storyboard */,
 				9511F97420CEFCB100F1986B /* Info.plist */,
+				9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */,
 			);
 			path = "shader-tests";
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E764D020D09545007FC68F /* GrayScaleMaterial.swift in Sources */,
+				9547FFD420E6A2D600BB7DD4 /* volume-slice.metal in Sources */,
 				9589567420E5A49100D12820 /* clouds.metal in Sources */,
 				958A732420D0824100EA06A2 /* ClipMaterial.swift in Sources */,
 				9589567020E5A47100D12820 /* SCNUIView.swift in Sources */,
@@ -352,6 +359,7 @@
 				95E764D220D09560007FC68F /* InvertMaterial.swift in Sources */,
 				950721B920D307F9000C36A9 /* unlit-texture.metal in Sources */,
 				95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */,
+				9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */,
 				9589566E20E5A45E00D12820 /* CloudVolume.swift in Sources */,
 				9511F96920CEFCB100F1986B /* AppDelegate.swift in Sources */,
 				9507217220D1BAC6000C36A9 /* MaterialExtensions.swift in Sources */,

@@ -95,7 +95,7 @@ float4 RaymarchClouds(Ray ray, float4 worldPosition, float time, texture2d<float
     
     //raymarching parameters
     float3 offset = initialDirection * 0.004; //base distance travelled during each step
-    float maxdepth = 0.2; //max distance from camera a ray can reach
+    float maxdepth = 0.15; //max distance from camera a ray can reach
     float skipStep = 3.0;
     float stepNearSurface = 1.25;
     float tileScale = 1;
@@ -106,10 +106,10 @@ float4 RaymarchClouds(Ray ray, float4 worldPosition, float time, texture2d<float
     float opacityModifier = .2;
 
     //cloud bounds
-    float cloudSizeVertical = 1;
+    float cloudSizeVertical = .2;
     float cloudCenterBounds = worldPosition.y;
-    float cloudUpperBounds = cloudCenterBounds + cloudSizeVertical/2;
-    float cloudLowerBounds = cloudCenterBounds - cloudSizeVertical/2;
+    float cloudUpperBounds = cloudCenterBounds + cloudSizeVertical;
+    float cloudLowerBounds = cloudCenterBounds - cloudSizeVertical;
     
     //final pixel color from raymarching
     float4 outputColor = float4(0.0);
