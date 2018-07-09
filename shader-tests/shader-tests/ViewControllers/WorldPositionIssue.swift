@@ -37,25 +37,47 @@ class WorldPositionIssue: UIViewController {
         lightNode.light?.color = UIColor.white
         scene.rootNode.addChildNode(lightNode)
         
+        //change node pivot to offset geometry
+        let pivotNode = SCNNode(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0))
+        pivotNode.position = SCNVector3Make(0, 0, 0)
+        scene.rootNode.addChildNode(pivotNode)
         
-        //test node
-        let node = SCNNode(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0))
-        node.position = SCNVector3Make(0, 0, 0)
-        scene.rootNode.addChildNode(node)
-        
-        print("setup --- ")
-        print("local position: \(node.position) | world position: \(node.worldPosition)") // (0,0,0), (0,0,0) expected
+        print("pivoted setup --- ")
+        print("local position: \(pivotNode.position) | world position: \(pivotNode.worldPosition)") // (0,0,0), (0,0,0) expected
         
         
-        node.pivot = SCNMatrix4MakeTranslation(10.0, 10.0, 10.0)
+        pivotNode.pivot = SCNMatrix4MakeTranslation(10.0, 10.0, 10.0)
         
         print("after pivot --- ")
-        print("local position: \(node.position) | world position: \(node.worldPosition)") // (0,0,0), (10,10,10) why are these different?
+        print("local position: \(pivotNode.position) | world position: \(pivotNode.worldPosition)") // (0,0,0), (-10,-10,-10) why are these different?
         
-        node.scale = SCNVector3Make(0.5, 0.5, 0.5)
+        pivotNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
         
         print("after scale --- ")
-        print("local position: \(node.position) | world position: \(node.worldPosition)") //(0,0,0), (10,10,10) but the cube geometry appears at (5,5,5)
+        print("local position: \(pivotNode.position) | world position: \(pivotNode.worldPosition)") //(0,0,0), (-10,-10,-10) but the cube geometry appears at (-5,-5,-5)
+        
+        
+        //create child node to offset geometry
+        let parentNode = SCNNode()
+        let nestedNode = SCNNode(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0))
+        nestedNode.position = SCNVector3Make(0, 0, 0)
+        nestedNode.position = SCNVector3Make(0, 0, 0)
+        scene.rootNode.addChildNode(parentNode)
+        parentNode.addChildNode(nestedNode)
+        
+        print("nested setup --- ")
+        print("local position: \(nestedNode.position) | world position: \(nestedNode.worldPosition)") // (0,0,0), (0,0,0) expected
+        
+        
+        nestedNode.transform = SCNMatrix4Invert( SCNMatrix4MakeTranslation(10.0, 10.0, 10.0)) //inverted to create an offset
+        
+        print("after child offset --- ")
+        print("local position: \(nestedNode.position) | world position: \(nestedNode.worldPosition)") // (-10,-10,-10), (-10,-10,-10) expected
+        
+        parentNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
+        
+        print("after parent scale --- ")
+        print("local position: \(nestedNode.position) | world position: \(nestedNode.worldPosition)") //(-10,-10,-10), (-5,-5,-5) expected
         
     }
 }
