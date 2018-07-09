@@ -30,6 +30,8 @@
 		95E764D020D09545007FC68F /* GrayScaleMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E764CF20D09545007FC68F /* GrayScaleMaterial.swift */; };
 		95E764D220D09560007FC68F /* InvertMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E764D120D09560007FC68F /* InvertMaterial.swift */; };
 		95E7655320D1980A007FC68F /* cloud-test.fsm in Resources */ = {isa = PBXBuildFile; fileRef = 95E7655220D1980A007FC68F /* cloud-test.fsm */; };
+		95F9036E20EBE3A50006EE2E /* WorldPositionIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9036D20EBE3A50006EE2E /* WorldPositionIssue.swift */; };
+		95F9037020EC14EC0006EE2E /* ArLighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F9036F20EC14EC0006EE2E /* ArLighting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		95E764CF20D09545007FC68F /* GrayScaleMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayScaleMaterial.swift; sourceTree = "<group>"; };
 		95E764D120D09560007FC68F /* InvertMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertMaterial.swift; sourceTree = "<group>"; };
 		95E7655220D1980A007FC68F /* cloud-test.fsm */ = {isa = PBXFileReference; lastKnownFileType = text; path = "cloud-test.fsm"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		95F9036D20EBE3A50006EE2E /* WorldPositionIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldPositionIssue.swift; sourceTree = "<group>"; };
+		95F9036F20EC14EC0006EE2E /* ArLighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArLighting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +182,8 @@
 				95E7654D20D1800D007FC68F /* Shaders */,
 				950A60C420D02BC2000E0BF8 /* Materials */,
 				950A60BD20CF2776000E0BF8 /* Assets */,
+				95F9036C20EBE3210006EE2E /* ViewControllers */,
 				9511F96820CEFCB100F1986B /* AppDelegate.swift */,
-				9511F96A20CEFCB100F1986B /* ViewController.swift */,
 				9589566F20E5A47100D12820 /* SCNUIView.swift */,
 				9589566D20E5A45E00D12820 /* CloudVolume.swift */,
 				9589567120E5A48100D12820 /* Utils.swift */,
@@ -207,6 +211,16 @@
 				950721B620D3079C000C36A9 /* Modifiers */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		95F9036C20EBE3210006EE2E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9511F96A20CEFCB100F1986B /* ViewController.swift */,
+				95F9036D20EBE3A50006EE2E /* WorldPositionIssue.swift */,
+				95F9036F20EC14EC0006EE2E /* ArLighting.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +371,8 @@
 				9589567220E5A48100D12820 /* Utils.swift in Sources */,
 				9507217520D1BB89000C36A9 /* ShaderData.swift in Sources */,
 				95E764D220D09560007FC68F /* InvertMaterial.swift in Sources */,
+				95F9036E20EBE3A50006EE2E /* WorldPositionIssue.swift in Sources */,
+				95F9037020EC14EC0006EE2E /* ArLighting.swift in Sources */,
 				950721B920D307F9000C36A9 /* unlit-texture.metal in Sources */,
 				95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */,
 				9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */,
