@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 import ARKit
 
-class ArMesh: UIViewController {
+class ArHitTest: UIViewController {
     
     //scene and AR setup
     @IBOutlet var sceneView: ARSCNView!
@@ -92,7 +92,7 @@ extension SCNNode {
     
 }
 
-extension ArMesh: ARSCNViewDelegate, ARSessionObserver{
+extension ArHitTest: ARSCNViewDelegate, ARSessionObserver{
     
     func setupArSession(){
         //recieve AR anchor events
@@ -113,7 +113,7 @@ extension ArMesh: ARSCNViewDelegate, ARSessionObserver{
     
     func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval) {
         
-        let results = sceneView.hitTest(sceneView.center, types: [ .existingPlaneUsingGeometry, .estimatedHorizontalPlane, .featurePoint])
+        let results = sceneView.hitTest(sceneView.center, types: [ .existingPlaneUsingGeometry, .estimatedHorizontalPlane])
         guard let hitFeature = results.last else {
             print("nil")
             return

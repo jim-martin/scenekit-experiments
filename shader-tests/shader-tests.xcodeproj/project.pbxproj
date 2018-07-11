@@ -22,7 +22,7 @@
 		95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 95384F6720DAF9F000EE2E53 /* depth-buffer.metal */; };
 		9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */; };
 		9547FFD420E6A2D600BB7DD4 /* volume-slice.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */; };
-		956B330E20F403E000644099 /* ArMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B330D20F403E000644099 /* ArMesh.swift */; };
+		956B330E20F403E000644099 /* ArHitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956B330D20F403E000644099 /* ArHitTest.swift */; };
 		9589566E20E5A45E00D12820 /* CloudVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589566D20E5A45E00D12820 /* CloudVolume.swift */; };
 		9589567020E5A47100D12820 /* SCNUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589566F20E5A47100D12820 /* SCNUIView.swift */; };
 		9589567220E5A48100D12820 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589567120E5A48100D12820 /* Utils.swift */; };
@@ -72,7 +72,7 @@
 		95384F6720DAF9F000EE2E53 /* depth-buffer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "depth-buffer.metal"; sourceTree = "<group>"; };
 		9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceVolume.swift; sourceTree = "<group>"; };
 		9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "volume-slice.metal"; sourceTree = "<group>"; };
-		956B330D20F403E000644099 /* ArMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArMesh.swift; sourceTree = "<group>"; };
+		956B330D20F403E000644099 /* ArHitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArHitTest.swift; sourceTree = "<group>"; };
 		9589566D20E5A45E00D12820 /* CloudVolume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVolume.swift; sourceTree = "<group>"; };
 		9589566F20E5A47100D12820 /* SCNUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNUIView.swift; sourceTree = "<group>"; };
 		9589567120E5A48100D12820 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 				9511F96A20CEFCB100F1986B /* ViewController.swift */,
 				95F9036D20EBE3A50006EE2E /* WorldPositionIssue.swift */,
 				95F9036F20EC14EC0006EE2E /* ArLighting.swift */,
-				956B330D20F403E000644099 /* ArMesh.swift */,
+				956B330D20F403E000644099 /* ArHitTest.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				95F9037020EC14EC0006EE2E /* ArLighting.swift in Sources */,
 				950721B920D307F9000C36A9 /* unlit-texture.metal in Sources */,
 				95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */,
-				956B330E20F403E000644099 /* ArMesh.swift in Sources */,
+				956B330E20F403E000644099 /* ArHitTest.swift in Sources */,
 				9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */,
 				9589566E20E5A45E00D12820 /* CloudVolume.swift in Sources */,
 				9511F96920CEFCB100F1986B /* AppDelegate.swift in Sources */,
