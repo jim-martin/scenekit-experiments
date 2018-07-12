@@ -19,6 +19,7 @@
 		9511F96E20CEFCB100F1986B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9511F96C20CEFCB100F1986B /* Main.storyboard */; };
 		9511F97020CEFCB100F1986B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9511F96F20CEFCB100F1986B /* Assets.xcassets */; };
 		9511F97320CEFCB100F1986B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9511F97120CEFCB100F1986B /* LaunchScreen.storyboard */; };
+		9525BF5420F6C0E700F3A875 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9525BF5320F6C0E700F3A875 /* SCNVector3Extensions.swift */; };
 		95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 95384F6720DAF9F000EE2E53 /* depth-buffer.metal */; };
 		9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */; };
 		9547FFD420E6A2D600BB7DD4 /* volume-slice.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */; };
@@ -69,6 +70,7 @@
 		9511F97420CEFCB100F1986B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9511F97920CEFCB100F1986B /* shader-testsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shader-testsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9511F98420CEFCB100F1986B /* shader-testsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "shader-testsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9525BF5320F6C0E700F3A875 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
 		95384F6720DAF9F000EE2E53 /* depth-buffer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "depth-buffer.metal"; sourceTree = "<group>"; };
 		9547FFD120E6A0F800BB7DD4 /* SliceVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceVolume.swift; sourceTree = "<group>"; };
 		9547FFD320E6A2D600BB7DD4 /* volume-slice.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = "volume-slice.metal"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				9589566F20E5A47100D12820 /* SCNUIView.swift */,
 				9589566D20E5A45E00D12820 /* CloudVolume.swift */,
 				9589567120E5A48100D12820 /* Utils.swift */,
+				9525BF5320F6C0E700F3A875 /* SCNVector3Extensions.swift */,
 				9511F96C20CEFCB100F1986B /* Main.storyboard */,
 				9511F96F20CEFCB100F1986B /* Assets.xcassets */,
 				9511F97120CEFCB100F1986B /* LaunchScreen.storyboard */,
@@ -378,6 +381,7 @@
 				95F9037020EC14EC0006EE2E /* ArLighting.swift in Sources */,
 				950721B920D307F9000C36A9 /* unlit-texture.metal in Sources */,
 				95384F6820DAF9F000EE2E53 /* depth-buffer.metal in Sources */,
+				9525BF5420F6C0E700F3A875 /* SCNVector3Extensions.swift in Sources */,
 				956B330E20F403E000644099 /* ArHitTest.swift in Sources */,
 				9547FFD220E6A0F800BB7DD4 /* SliceVolume.swift in Sources */,
 				9589566E20E5A45E00D12820 /* CloudVolume.swift in Sources */,

@@ -19,7 +19,10 @@ class ArHitTest: UIViewController {
     var planeId: Int = 0
     
     //hittest node
-    var node: SCNNode!
+    var smoothedNode: SCNNode!
+    
+    //smoothed hittest nodes
+    var smoothedTestNodes: [SCNNode]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,25 +39,26 @@ class ArHitTest: UIViewController {
         setupArSession()
         
         //setup hittest node
-        node = SCNNode(geometry: SCNSphere(radius: 0.05))
-        scene.rootNode.addChildNode(node)
+        smoothedNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+        smoothedNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+        scene.rootNode.addChildNode(smoothedNode)
         
+        //setup smoothed hittestnodes
+        smoothedTestNodes = [SCNNode]()
+        for i in 0..<5 {
+            smoothedTestNodes.append(SCNNode(geometry: SCNSphere(radius: 0.01)))
+            scene.rootNode.addChildNode(smoothedTestNodes[i])
+        }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        sceneView.addGestureRecognizer(tapGesture)
     }
     
-    @objc func handleTap(_ gesture: UIGestureRecognizer) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-       //find the hit position in the scene
-        let results = sceneView.hitTest(gesture.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
-        guard let hitFeature = results.last else { return }
-        let hitTransform = SCNMatrix4(hitFeature.worldTransform)
-        let hitPosition = SCNVector3Make(hitTransform.m41,
-                                         hitTransform.m42,
-                                         hitTransform.m43)
+        let position = event?.touches(for: sceneView)?.first?.location(in: sceneView)
+        let smoothedHitPosition = sceneView.smoothedHitTest(position!, types: [ .existingPlaneUsingGeometry, .estimatedHorizontalPlane, .featurePoint], smoothingRadius: 30, testNodes: smoothedTestNodes)
         
-        //do something with the hit position
+        smoothedNode.position = smoothedHitPosition
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +96,56 @@ extension SCNNode {
     
 }
 
+extension ARSCNView {
+    
+    @objc func smoothedHitTest(_ point: CGPoint, types: ARHitTestResult.ResultType, smoothingRadius: CGFloat, testNodes: [SCNNode]?) -> SCNVector3 {
+        
+        //use smoothing radius to define a set of hittest samples
+        let samplePoints = [
+            point, //center
+            CGPoint(x: point.x, y: point.y + smoothingRadius), //up
+            CGPoint(x: point.x, y: point.y - smoothingRadius), //down
+            CGPoint(x: point.x - smoothingRadius, y: point.y), //left
+            CGPoint(x: point.x + smoothingRadius, y: point.y)  //right
+        ]
+        
+        //collect sample results in world-space
+        var sampleResults = [SCNVector3]()
+        var smoothedResult = SCNVector3Make(0, 0, 0)
+        
+        for i in 0..<samplePoints.count {
+
+            //do a hittest for each point
+            let results = self.hitTest(samplePoints[i], types:types)
+            guard let hitFeature = results.last else {
+                //fade the test node and move the next sample
+                testNodes?[i].opacity = 0.2
+                continue
+            }
+            
+            //add the sample result if the hittest returned a feature
+            let hitTransform = SCNMatrix4(hitFeature.worldTransform)
+            let hitPosition = SCNVector3Make(hitTransform.m41,
+                                             hitTransform.m42,
+                                             hitTransform.m43)
+            sampleResults.append(hitPosition)
+            
+            //move the test nodes if they exist
+            testNodes?[i].position = hitPosition
+            testNodes?[i].opacity = 0.8
+        }
+        
+        //average samples
+        for sample in sampleResults {
+            smoothedResult = smoothedResult + sample
+        }
+        smoothedResult = smoothedResult / Float(sampleResults.count)
+        
+        return smoothedResult
+    }
+    
+}
+
 extension ArHitTest: ARSCNViewDelegate, ARSessionObserver{
     
     func setupArSession(){
@@ -113,21 +167,21 @@ extension ArHitTest: ARSCNViewDelegate, ARSessionObserver{
     
     func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval) {
         
-        let results = sceneView.hitTest(sceneView.center, types: [ .existingPlaneUsingGeometry, .estimatedHorizontalPlane])
-        guard let hitFeature = results.last else {
-            print("nil")
-            return
-            
-        }
-        
-        print(hitFeature.type)
-        
-        let hitTransform = SCNMatrix4(hitFeature.worldTransform)
-        let hitPosition = SCNVector3Make(hitTransform.m41,
-                                         hitTransform.m42,
-                                         hitTransform.m43)
-        
-        self.node?.position = hitPosition
+//        let results = sceneView.hitTest(sceneView.center, types: [ .existingPlaneUsingGeometry, .estimatedHorizontalPlane, .featurePoint])
+//        guard let hitFeature = results.last else {
+//            print("nil")
+//            return
+//
+//        }
+//
+//        print(hitFeature.type)
+//
+//        let hitTransform = SCNMatrix4(hitFeature.worldTransform)
+//        let hitPosition = SCNVector3Make(hitTransform.m41,
+//                                         hitTransform.m42,
+//                                         hitTransform.m43)
+//
+//        self.node?.position = hitPosition
         
     }
     
